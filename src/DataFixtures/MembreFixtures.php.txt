@@ -1,0 +1,25 @@
+<?php
+
+namespace App\DataFixtures;
+
+use App\Entity\Membre;
+use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\Persistence\ObjectManager;
+
+class MembreFixtures extends Fixture
+{
+    public function load(ObjectManager $manager)
+    {
+        for ( $i = 1 ; $i <= 5 ; $i++) {
+            $membre = new Membre();
+            $prenom = "Prenom".$i;
+            $nom = "Nom".$i;
+            $email = $nom."_".$prenom."gmail.com";
+            $membre->setNom($nom)
+                    ->setPrenom($prenom)
+                    ->setEmail($email);
+            $manager->persist($membre);
+        }
+        $manager->flush();
+    }
+}

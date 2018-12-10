@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+
+{% block body %}
+   <h1> Bienvenue sur TravelAdvisor {{ name }}</h1>
+    <a href ="{{ path('voyage') }}"> Lien vers la page d'accueil</a>
+    <br>
+    Date du jour : {{ date_du_jour  }}
+{% endblock %}
